@@ -15,7 +15,7 @@ export default function Page() {
           <p 
             className={`${inter.className} antialiased text-xl text-gray-800 md:text-2xl md:leading-normal`}
           >
-            <strong>Welcome to my DaisyUI dashboard restyle project.</strong> Explore an
+            <strong>Welcome to my dashboard restyle project using <a href="https://daisyui.com/">daisyUI</a>.</strong> Explore an
             invoice and customer dashboard built with Next.js, featuring
             database-backed data, authentication, and invoice management. The
             demo login is prefilled—click <strong>Log in</strong> to explore
