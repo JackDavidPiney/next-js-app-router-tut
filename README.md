@@ -1,5 +1,25 @@
-## Next.js App Router Course - Starter
+# Next.js App Router Dashboard
 
-This is the starter template for the Next.js App Router Course. It contains the starting code for the dashboard application.
+A full-stack dashboard built while completing the [Next.js App Router Fundamentals course](https://nextjs.org/learn).
 
-For more information, see the [course curriculum](https://nextjs.org/learn) on the Next.js Website.
+## Features
+
+- Dashboard with invoice and customer views
+- Invoice creation, editing, search, and pagination
+- PostgreSQL database integration and authentication
+- Public course certificate page at `/certificate`
+- Demo login available from the login page
+
+## Demo login
+
+The login page includes prefilled demo credentials. Click **Log in** to explore the app.
+
+## Certificate
+
+View the course certificate at `/certificate`.
+
+## Run locally
+
+```bash
+pnpm install
+pnpm dev
