@@ -1,4 +1,5 @@
 import postgres from 'postgres';
+import { auth } from '@/auth';
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
@@ -14,6 +15,11 @@ async function listInvoices() {
 }
 
 export async function GET() {
+  const session = await auth();
+  if (!session?.user) {
+    return Response.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
   try {
   	return Response.json(await listInvoices());
   } catch (error) {

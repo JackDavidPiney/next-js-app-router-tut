@@ -18,8 +18,11 @@ The login page includes prefilled demo credentials. Click **Log in** to explore 
 
 View the course certificate at `/certificate`.
 
+[![Next.js App Router Fundamentals certificate awarded to Jack David Piney](./public/certificate.png)](./public/certificate.png)
+
 ## Run locally
 
 ```bash
 pnpm install
 pnpm dev
+```
