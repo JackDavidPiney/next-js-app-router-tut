@@ -8,6 +8,7 @@ import {
 } from '@heroicons/react/24/outline';
 import { ArrowRightIcon } from '@heroicons/react/20/solid';
 import { Button } from './button';
+import Link from 'next/link';
 import { useActionState } from 'react';
 import { authenticate } from '@/app/lib/actions';
 import { useSearchParams } from 'next/navigation';
@@ -41,6 +42,7 @@ export default function LoginForm() {
                 type="email"
                 name="email"
                 placeholder="Enter your email address"
+                defaultValue="user@nextmail.com"
                 required
               />
               <AtSymbolIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
@@ -60,6 +62,7 @@ export default function LoginForm() {
                 type="password"
                 name="password"
                 placeholder="Enter password"
+                defaultValue="123456"
                 required
                 minLength={6}
               />
@@ -71,6 +74,9 @@ export default function LoginForm() {
         <Button className="mt-4 w-full" aria-disabled={isPending}>
           Log in <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
         </Button>
+        <p className="mt-2 text-center text-sm text-gray-600">
+          Demo credentials are prefilled. Click Log in to explore the full app.
+        </p>
         <div className="flex h-8 items-end space-x-1">
           {errorMessage && (
             <>
@@ -79,6 +85,12 @@ export default function LoginForm() {
             </>
           )}
         </div>
+        <Link
+          href="/certificate"
+          className="mt-2 flex h-10 w-full items-center justify-center rounded-lg bg-white px-4 text-sm font-medium text-blue-600 ring-1 ring-inset ring-gray-200 transition-colors hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+        >
+          View my course certificate
+        </Link>
       </div>
     </form>
   );
