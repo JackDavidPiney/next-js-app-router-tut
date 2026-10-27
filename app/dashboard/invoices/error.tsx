@@ -15,17 +15,20 @@ export default function Error({
   }, [error]);
  
   return (
-    <main className="flex h-full flex-col items-center justify-center">
-      <h2 className="text-center">Something went wrong!</h2>
-      <button
-        className="mt-4 rounded-md bg-blue-500 px-4 py-2 text-sm text-white transition-colors hover:bg-blue-400"
-        onClick={
-          // Attempt to recover by trying to re-render the invoices route
-          () => reset()
-        }
-      >
-        Try again
-      </button>
+    <main className="invoice-page flex h-full w-full flex-col">
+      <h1 className="dashboard-page-heading w-full rounded-lg bg-[#111b3a] px-4 py-3 text-lg font-medium text-base-100 md:text-xl">
+        Invoices
+      </h1>
+      <div className="flex grow flex-col items-center justify-center text-base-content">
+        <h2 className="text-center">Something went wrong!</h2>
+        <button
+          type="button"
+          className="sidebar-nav-control sidebar-nav-link mt-4 flex h-12 cursor-pointer items-center px-4 text-sm font-medium"
+          onClick={() => reset()}
+        >
+          Try again
+        </button>
+      </div>
     </main>
   );
 }

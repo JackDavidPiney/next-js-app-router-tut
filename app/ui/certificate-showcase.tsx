@@ -1,21 +1,21 @@
 import Image from 'next/image';
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
-import { lusitana } from '@/app/ui/fonts';
+import { inter } from '@/app/ui/fonts';
 
 export default function CertificateShowcase() {
   return (
     <>
-      <div className="mb-6">
-        <h1 className={`${lusitana.className} text-2xl`}>
+      <div className="certificate-header mb-6 rounded-lg px-4 py-3">
+        <h1 className={`${inter.className} text-lg font-medium md:text-xl`}>
           Next.js App Router Fundamentals
         </h1>
-        <p className="mt-2 text-sm text-gray-600">
+        <p className="certificate-subtitle mt-2 text-sm">
           Certificate of completion · October 26, 2026
         </p>
       </div>
 
-      <section className="rounded-xl bg-gray-50 p-4 shadow-sm md:p-6">
-        <h2 className="mb-4 text-sm font-medium text-gray-900">
+      <section className="certificate-card rounded-xl bg-base-200 p-4 text-base-content shadow-sm md:p-6">
+        <h2 className="mb-4 text-sm font-medium">
           Course certificate
         </h2>
         <a
@@ -23,7 +23,7 @@ export default function CertificateShowcase() {
           target="_blank"
           rel="noreferrer"
           aria-label="Open the certificate image at full size"
-          className="group block overflow-hidden rounded-lg bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+          className="certificate-image-link group block overflow-hidden rounded-lg bg-base-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
         >
           <Image
             src="/certificate.png"
@@ -38,7 +38,7 @@ export default function CertificateShowcase() {
           href="https://github.com/JackDavidPiney/next-js-app-router-tut"
           target="_blank"
           rel="noreferrer"
-          className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+          className="certificate-project-link mt-5 inline-flex items-center gap-2 text-sm font-medium text-primary hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
         >
           View the project on GitHub
           <ArrowTopRightOnSquareIcon className="h-4 w-4" />

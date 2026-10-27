@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 
 import AcmeLogo from '@/app/ui/acme-logo';
 import LoginForm from '@/app/ui/login-form';
+import ThemeName from '@/app/ui/dashboard/theme-name';
 import { Suspense } from 'react';
 
 export const metadata: Metadata = {
@@ -10,11 +11,14 @@ export const metadata: Metadata = {
  
 export default function LoginPage() {
   return (
-    <main className="flex items-center justify-center md:h-screen">
-      <div className="relative mx-auto flex w-full max-w-[400px] flex-col space-y-2.5 p-4 md:-mt-32">
-        <div className="flex h-20 w-full items-end rounded-lg bg-blue-500 p-3 md:h-36">
-          <div className="w-32 text-white md:w-36">
-            <AcmeLogo />
+    <main className="login-page flex min-h-screen items-center justify-center">
+      <div className="relative mx-auto flex w-full max-w-[400px] flex-col space-y-2.5 p-4">
+        <div className="login-brand relative flex h-20 w-full items-end rounded-lg p-3 md:h-36">
+          <div className="w-32 md:w-36">
+            <AcmeLogo className="login-logo" />
+          </div>
+          <div className="absolute bottom-3 right-3">
+            <ThemeName compact />
           </div>
         </div>
         <Suspense>

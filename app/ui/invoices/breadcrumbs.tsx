@@ -1,6 +1,5 @@
 import { clsx } from 'clsx';
 import Link from 'next/link';
-import { lusitana } from '@/app/ui/fonts';
 
 interface Breadcrumb {
   label: string;
@@ -14,19 +13,21 @@ export default function Breadcrumbs({
   breadcrumbs: Breadcrumb[];
 }) {
   return (
-    <nav aria-label="Breadcrumb" className="mb-6 block">
-      <ol className={clsx(lusitana.className, 'flex text-xl md:text-2xl')}>
+    <nav aria-label="Breadcrumb" className="invoice-breadcrumbs mb-6 block">
+      <ol className="flex flex-wrap items-center gap-y-1 text-sm">
         {breadcrumbs.map((breadcrumb, index) => (
           <li
             key={breadcrumb.href}
             aria-current={breadcrumb.active}
-            className={clsx(
-              breadcrumb.active ? 'text-gray-900' : 'text-gray-500',
-            )}
+            className={clsx('invoice-breadcrumb-item', {
+              'invoice-breadcrumb-active': breadcrumb.active,
+            })}
           >
             <Link href={breadcrumb.href}>{breadcrumb.label}</Link>
             {index < breadcrumbs.length - 1 ? (
-              <span className="mx-3 inline-block">/</span>
+              <span className="mx-3 inline-block" aria-hidden="true">
+                /
+              </span>
             ) : null}
           </li>
         ))}

@@ -4,7 +4,6 @@ import Pagination from '@/app/ui/invoices/pagination';
 import Search from '@/app/ui/search';
 import Table from '@/app/ui/invoices/table';
 import { CreateInvoice } from '@/app/ui/invoices/buttons';
-import { lusitana } from '@/app/ui/fonts';
 import { InvoicesTableSkeleton } from '@/app/ui/skeletons';
 import { Suspense } from 'react';
 import { fetchInvoicesPages } from '@/app/lib/data';
@@ -25,12 +24,14 @@ export default async function Page(props: {
   const totalPages = await fetchInvoicesPages(query);
 
   return (
-    <div className="w-full">
-      <div className="flex w-full items-center justify-between">
-        <h1 className={`${lusitana.className} text-2xl`}>Invoices</h1>
+    <div className="invoice-page w-full">
+      <div className="flex w-full items-start justify-between md:min-h-[104px]">
+        <h1 className="dashboard-page-heading w-full rounded-lg bg-[#111b3a] px-4 py-3 text-lg font-medium text-base-100 md:text-xl">
+          Invoices
+        </h1>
       </div>
-      <div className="mt-4 flex items-center justify-between gap-2 md:mt-8">
-        <Search placeholder="Search invoices..." />
+      <div className="mt-4 flex items-center justify-between gap-2 md:mt-2">
+        <Search placeholder="Search invoices..." className="invoice-search" />
         <CreateInvoice />
       </div>
        <Suspense key={query + currentPage} fallback={<InvoicesTableSkeleton />}>

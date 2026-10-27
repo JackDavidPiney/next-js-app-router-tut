@@ -1,6 +1,1048 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark, cyberpunk;
+}
+
+@plugin "daisyui/theme" {
+  name: "cyberpunk";
+  --color-primary: oklch(23% 0.07 269);
+  --color-primary-content: #ffffff;
+}
+
+[data-theme="cyberpunk"] {
+  --color-primary-soft: color-mix(in oklab, var(--color-primary) 95%, white);
+}
+
+[data-theme="dark"] {
+  --color-primary-hover: color-mix(
+    in oklab,
+    var(--color-primary) 10%,
+    var(--color-base-200)
+  );
+}
+
+.dashboard-card-value {
+  background-color: var(--color-primary-soft, var(--color-base-100));
+}
+
+.dashboard-latest-avatar {
+  border: 2px solid var(--color-base-content);
+}
+
+.invoice-table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.invoice-table-head th {
+  border-bottom: 0;
+}
+
+.invoice-table-row:first-child td {
+  border-top: 0;
+}
+
+.invoice-toolbar-control {
+  box-sizing: border-box;
+  height: 48px;
+  min-height: 48px;
+}
+
+.skeleton-panel {
+  background-color: var(--color-base-200);
+}
+
+.skeleton-inner {
+  background-color: var(--color-base-100);
+}
+
+.skeleton-block {
+  background-color: color-mix(
+    in oklab,
+    var(--color-base-content) 12%,
+    var(--color-base-200)
+  );
+}
+
+.skeleton-divider {
+  border-color: var(--color-base-300);
+}
+
+.skeleton-shimmer::before {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  pointer-events: none;
+  content: '';
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    color-mix(in oklab, var(--color-base-content) 12%, transparent),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+[data-theme="cyberpunk"] .skeleton-panel {
+  background-color: var(--color-primary);
+}
+
+[data-theme="cyberpunk"] .skeleton-inner {
+  background-color: var(--color-primary-soft);
+}
+
+[data-theme="cyberpunk"] .skeleton-block {
+  background-color: color-mix(in oklab, var(--color-base-100) 28%, transparent);
+}
+
+[data-theme="cyberpunk"] .skeleton-divider {
+  border-color: color-mix(in oklab, var(--color-base-100) 25%, transparent);
+}
+
+[data-theme="cyberpunk"] .skeleton-shimmer::before {
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    color-mix(in oklab, var(--color-base-100) 25%, transparent),
+    transparent
+  );
+}
+
+.home-brand {
+  background-color: var(--color-base-200);
+}
+
+.home-brand-content {
+  color: var(--color-base-content);
+}
+
+.home-welcome-card {
+  background-color: var(--color-base-200);
+  color: var(--color-base-content);
+}
+
+.home-description {
+  color: var(--color-base-content);
+}
+
+.home-restyle-word {
+  --cursor-color-mix: 0%;
+  transition: color 120ms linear;
+}
+
+.home-restyle-word[data-color-segment="0"] {
+  color: color-mix(
+    in oklab,
+    var(--color-primary) calc(100% - var(--cursor-color-mix)),
+    var(--color-secondary) var(--cursor-color-mix)
+  );
+}
+
+.home-restyle-word[data-color-segment="1"] {
+  color: color-mix(
+    in oklab,
+    var(--color-secondary) calc(100% - var(--cursor-color-mix)),
+    var(--color-accent) var(--cursor-color-mix)
+  );
+}
+
+.home-restyle-word[data-color-segment="2"] {
+  color: color-mix(
+    in oklab,
+    var(--color-accent) calc(100% - var(--cursor-color-mix)),
+    var(--color-primary) var(--cursor-color-mix)
+  );
+}
+
+.home-inline-link {
+  color: var(--color-primary);
+}
+
+.login-brand {
+  background-color: var(--color-primary);
+}
+
+.login-brand > div {
+  color: var(--color-primary-content);
+}
+
+.login-brand .theme-selector-light,
+.login-brand .theme-selector-light:is(:hover, :active, :focus-visible) {
+  color: var(--color-primary-content);
+}
+
+.login-brand .theme-selector-light:hover {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z'/%3E%3C/svg%3E") 12 12, pointer;
+}
+
+.login-card {
+  background-color: var(--color-base-200);
+  color: var(--color-base-content);
+}
+
+.login-label {
+  color: var(--color-base-content);
+}
+
+.login-control {
+  border-color: var(--color-base-300);
+  background-color: var(--color-base-100);
+  color: var(--color-base-content);
+}
+
+.login-control::placeholder,
+.login-icon {
+  color: color-mix(in oklab, var(--color-base-content) 55%, transparent);
+}
+
+.login-control:focus {
+  border-color: var(--color-primary);
+  outline-color: var(--color-primary);
+}
+
+.login-control:focus ~ .login-icon {
+  color: var(--color-primary);
+}
+
+.login-submit {
+  background-color: var(--color-primary) !important;
+  color: var(--color-primary-content) !important;
+}
+
+.login-form button.login-submit:hover {
+  cursor: pointer;
+}
+
+.login-submit:hover:not(:disabled) {
+  background-color: color-mix(in oklab, var(--color-primary) 85%, black) !important;
+}
+
+.login-help {
+  color: color-mix(in oklab, var(--color-base-content) 65%, transparent);
+}
+
+.login-certificate {
+  background-color: var(--color-base-100);
+  color: var(--color-primary);
+}
+
+.home-preview-frame {
+  border-color: var(--color-base-300);
+  background-color: var(--color-base-200);
+}
+
+.home-hero-desktop {
+  display: none;
+}
+
+.home-hero-mobile {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  [data-theme="light"] .home-hero-mobile-light,
+  [data-theme="dark"] .home-hero-mobile-dark,
+  [data-theme="cyberpunk"] .home-hero-mobile-cyber {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  .home-hero-mobile {
+    display: none;
+  }
+
+  [data-theme="light"] .home-hero-desktop-light,
+  [data-theme="dark"] .home-hero-desktop-dark,
+  [data-theme="cyberpunk"] .home-hero-desktop-cyber {
+    display: block;
+  }
+}
+
+[data-theme="cyberpunk"] .home-preview-frame {
+  border-color: color-mix(in oklab, var(--color-base-100) 55%, transparent);
+  background-color: var(--color-primary);
+}
+
+[data-theme="cyberpunk"] .login-brand {
+  background-color: var(--color-primary);
+}
+
+[data-theme="cyberpunk"] .login-brand > div {
+  color: var(--color-base-100);
+}
+
+[data-theme="cyberpunk"] .login-card {
+  background-color: var(--color-primary) !important;
+  color: var(--color-base-100) !important;
+}
+
+[data-theme="cyberpunk"] .login-logo {
+  color: var(--color-base-100);
+}
+
+[data-theme="cyberpunk"] .login-label {
+  color: var(--color-base-100) !important;
+}
+
+[data-theme="cyberpunk"] .login-control {
+  border-color: color-mix(in oklab, var(--color-base-100) 35%, transparent) !important;
+  background-color: var(--color-primary-soft) !important;
+  color: var(--color-base-100) !important;
+}
+
+[data-theme="cyberpunk"] .login-control::placeholder {
+  color: color-mix(in oklab, var(--color-base-100) 70%, transparent);
+}
+
+[data-theme="cyberpunk"] .login-icon {
+  color: color-mix(in oklab, var(--color-base-100) 70%, transparent);
+}
+
+[data-theme="cyberpunk"] .login-control:focus {
+  border-color: var(--color-base-100) !important;
+  outline-color: var(--color-base-100) !important;
+}
+
+[data-theme="cyberpunk"] .login-control:focus ~ .login-icon {
+  color: var(--color-base-100);
+}
+
+[data-theme="cyberpunk"] .login-form button.cyber-login-submit,
+[data-theme="cyberpunk"] .login-form button.cyber-login-submit:hover,
+[data-theme="cyberpunk"] .login-form button.cyber-login-submit:focus-visible,
+[data-theme="cyberpunk"] .login-form button.cyber-login-submit:active {
+  background-color: var(--color-base-100) !important;
+  color: var(--color-primary) !important;
+  outline-color: var(--color-primary) !important;
+}
+
+[data-theme="cyberpunk"] .login-form button.cyber-login-submit:hover:not(:disabled) {
+  background-color: color-mix(in oklab, var(--color-base-100) 85%, white) !important;
+  color: var(--color-primary) !important;
+}
+
+[data-theme="cyberpunk"] .login-help {
+  color: color-mix(in oklab, var(--color-base-100) 75%, transparent);
+}
+
+[data-theme="cyberpunk"] .login-certificate {
+  background-color: var(--color-primary) !important;
+  color: var(--color-base-100) !important;
+}
+
+[data-theme="cyberpunk"] .login-certificate:hover {
+  background-color: color-mix(in oklab, var(--color-primary) 85%, black) !important;
+  color: var(--color-base-100) !important;
+}
+
+[data-theme="cyberpunk"] .home-brand,
+[data-theme="cyberpunk"] .home-welcome-card {
+  background-color: var(--color-primary);
+}
+
+[data-theme="cyberpunk"] .home-brand-content,
+[data-theme="cyberpunk"] .home-description {
+  color: var(--color-base-100);
+}
+
+[data-theme="cyberpunk"] .home-inline-link {
+  color: var(--color-base-100);
+}
+
+.invoice-breadcrumbs {
+  color: color-mix(in oklab, var(--color-base-content) 65%, transparent);
+}
+
+.invoice-breadcrumb-item a:hover,
+.invoice-breadcrumb-active {
+  color: var(--color-primary);
+}
+
+[data-theme="dark"] .invoice-form .invoice-form-panel,
+[data-theme="light"] .invoice-form .invoice-form-panel {
+  background-color: var(--color-base-200) !important;
+  color: var(--color-base-content) !important;
+}
+
+[data-theme="dark"] .invoice-form .invoice-form-control,
+[data-theme="light"] .invoice-form .invoice-form-control {
+  border-color: var(--color-base-300) !important;
+  background-color: var(--color-base-100) !important;
+  color: var(--color-base-content) !important;
+}
+
+.invoice-form .invoice-form-control::placeholder {
+  color: color-mix(in oklab, var(--color-base-content) 55%, transparent) !important;
+}
+
+.invoice-form .invoice-form-control:focus {
+  border-color: var(--color-primary);
+  outline-color: var(--color-primary);
+}
+
+.invoice-form-icon {
+  color: color-mix(in oklab, var(--color-base-content) 55%, transparent);
+}
+
+.invoice-form-control:focus ~ .invoice-form-icon {
+  color: var(--color-primary);
+}
+
+.invoice-form .invoice-status-options {
+  border-color: var(--color-base-300) !important;
+  background-color: var(--color-base-100) !important;
+  color: var(--color-base-content) !important;
+}
+
+.invoice-status-radio {
+  accent-color: var(--color-primary);
+}
+
+.invoice-status-pending {
+  background-color: var(--color-base-200);
+  color: var(--color-base-content);
+}
+
+.invoice-status-paid {
+  background-color: #22c55e !important;
+  color: white !important;
+}
+
+.invoice-form .invoice-form-cancel,
+.invoice-form .invoice-form-submit {
+  background-color: var(--color-base-200) !important;
+  color: var(--color-base-content) !important;
+  border-color: var(--color-base-300) !important;
+}
+
+.invoice-form .invoice-form-cancel:hover,
+.invoice-form .invoice-form-submit:hover:not(:disabled) {
+  background-color: var(--color-base-300) !important;
+}
+
+.invoice-form .invoice-form-submit:disabled,
+.invoice-form .invoice-form-submit[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.invoice-form :is(input, select, a, button):focus-visible {
+  outline-color: var(--color-primary);
+}
+
+[data-theme="cyberpunk"] .invoice-form .invoice-form-panel {
+  background-color: var(--color-primary) !important;
+  color: var(--color-base-100) !important;
+}
+
+[data-theme="cyberpunk"] .invoice-form .invoice-form-control,
+[data-theme="cyberpunk"] .invoice-form .invoice-status-options {
+  border-color: color-mix(in oklab, var(--color-base-100) 30%, transparent) !important;
+  background-color: var(--color-primary-soft) !important;
+  color: var(--color-base-100) !important;
+}
+
+[data-theme="cyberpunk"] .invoice-form .invoice-form-control::placeholder,
+[data-theme="cyberpunk"] .invoice-form-icon,
+[data-theme="cyberpunk"] .invoice-breadcrumbs {
+  color: color-mix(in oklab, var(--color-base-100) 70%, transparent) !important;
+}
+
+[data-theme="cyberpunk"] .invoice-breadcrumb-item:not(.invoice-breadcrumb-active) a {
+  color: var(--color-primary);
+}
+
+[data-theme="cyberpunk"] .invoice-breadcrumb-item:not(.invoice-breadcrumb-active) span {
+  color: var(--color-primary);
+}
+
+[data-theme="cyberpunk"] .invoice-status-pending {
+  background-color: var(--color-primary);
+  color: var(--color-base-100);
+}
+
+[data-theme="cyberpunk"] .invoice-status-radio {
+  accent-color: var(--color-base-100);
+}
+
+[data-theme="cyberpunk"] .invoice-form .invoice-form-cancel,
+[data-theme="cyberpunk"] .invoice-form .invoice-form-submit {
+  background-color: var(--color-primary) !important;
+  color: var(--color-base-100) !important;
+}
+
+[data-theme="cyberpunk"] .invoice-form .invoice-form-cancel:hover,
+[data-theme="cyberpunk"] .invoice-form .invoice-form-submit:hover:not(:disabled) {
+  background-color: color-mix(in oklab, var(--color-primary) 85%, black) !important;
+}
+
+.certificate-header {
+  background-color: var(--color-base-200);
+  color: var(--color-base-content);
+}
+
+.certificate-card {
+  background-color: var(--color-base-200);
+  color: var(--color-base-content);
+}
+
+.certificate-subtitle {
+  color: color-mix(in oklab, var(--color-base-content) 65%, transparent);
+}
+
+[data-theme="cyberpunk"] .certificate-header,
+[data-theme="cyberpunk"] .certificate-card {
+  background-color: var(--color-primary);
+  color: var(--color-base-100);
+}
+
+[data-theme="cyberpunk"] .certificate-image-link {
+  background-color: var(--color-primary-soft);
+}
+
+[data-theme="cyberpunk"] .certificate-subtitle {
+  color: color-mix(in oklab, var(--color-base-100) 75%, transparent);
+}
+
+[data-theme="cyberpunk"] .certificate-project-link {
+  color: var(--color-base-100);
+}
+
+[data-theme="cyberpunk"] .certificate-navigation .theme-selector-compact,
+[data-theme="cyberpunk"]
+  .certificate-navigation
+  .theme-selector-compact:is(:hover, :active, :focus-visible) {
+  border-color: var(--color-primary) !important;
+  background-color: var(--color-primary) !important;
+  color: var(--color-base-100) !important;
+}
+
+.invoice-search {
+  border-color: var(--color-primary-hover, var(--color-base-300));
+}
+
+[data-theme="dark"] .invoice-row-action {
+  border-color: lab(97.3754 -1.86673 -10.6283 / 0.15) !important;
+}
+
+[data-theme="light"] .dashboard-summary-card,
+[data-theme="dark"] .dashboard-summary-card {
+  background-color: var(--color-base-200);
+  color: var(--color-base-content);
+}
+
+[data-theme="light"] .dashboard-page-heading,
+[data-theme="dark"] .dashboard-page-heading {
+  background-color: var(--color-base-200);
+  color: var(--color-base-content);
+}
+
+[data-theme="cyberpunk"] .dashboard-section-heading {
+  color: var(--color-primary);
+}
+
+[data-theme="light"] .dashboard-summary-icon,
+[data-theme="dark"] .dashboard-summary-icon {
+  color: var(--color-base-content);
+}
+
+[data-theme="light"] .dashboard-card-value {
+  background-color: var(--color-base-100);
+  color: var(--color-base-content);
+}
+
+[data-theme="dark"] .dashboard-card-value {
+  background-color: var(--color-primary-hover);
+  color: var(--color-base-content);
+}
+
+[data-theme="dark"] .dashboard-revenue-panel {
+  background-color: var(--color-base-200);
+}
+
+[data-theme="dark"] .dashboard-revenue-plot {
+  background-color: var(--color-base-100);
+}
+
+[data-theme="dark"] .dashboard-revenue-axis {
+  color: color-mix(in oklab, var(--color-base-content) 65%, transparent);
+}
+
+[data-theme="dark"] .dashboard-revenue-footer {
+  color: color-mix(in oklab, var(--color-base-content) 65%, transparent);
+}
+
+[data-theme="dark"] .dashboard-latest-panel {
+  background-color: var(--color-base-200);
+}
+
+[data-theme="dark"] .dashboard-latest-list {
+  background-color: var(--color-base-100);
+  color: var(--color-base-content);
+}
+
+[data-theme="dark"] .dashboard-latest-row:not(:first-child) {
+  border-color: var(--color-base-300);
+}
+
+[data-theme="dark"] .dashboard-latest-email,
+[data-theme="dark"] .dashboard-latest-footer {
+  color: color-mix(in oklab, var(--color-base-content) 65%, transparent);
+}
+
+[data-theme="cyberpunk"] .dashboard-revenue-panel,
+[data-theme="cyberpunk"] .dashboard-latest-panel {
+  background-color: var(--color-primary);
+  color: var(--color-base-100);
+}
+
+[data-theme="cyberpunk"] .dashboard-revenue-plot,
+[data-theme="cyberpunk"] .dashboard-latest-list {
+  background-color: var(--color-primary-soft);
+  color: var(--color-base-100);
+}
+
+[data-theme="cyberpunk"] .dashboard-revenue-bar {
+  background-color: var(--color-base-100);
+}
+
+[data-theme="cyberpunk"] .dashboard-latest-avatar {
+  border-color: var(--color-base-100);
+}
+
+[data-theme="cyberpunk"] .dashboard-revenue-axis,
+[data-theme="cyberpunk"] .dashboard-revenue-footer,
+[data-theme="cyberpunk"] .dashboard-latest-email,
+[data-theme="cyberpunk"] .dashboard-latest-footer {
+  color: color-mix(in oklab, var(--color-base-100) 75%, transparent);
+}
+
+[data-theme="cyberpunk"] .dashboard-latest-row:not(:first-child) {
+  border-color: color-mix(in oklab, var(--color-base-100) 25%, transparent);
+}
+
+[data-theme="cyberpunk"] .invoice-page {
+  color: var(--color-base-100);
+}
+
+[data-theme="cyberpunk"] .invoice-search-icon {
+  color: var(--color-base-100) !important;
+}
+
+[data-theme="dark"] .invoice-page input.invoice-search {
+  border-color: var(--color-primary-hover);
+  background-color: var(--color-base-200) !important;
+}
+
+[data-theme="dark"] .invoice-search-icon {
+  color: white;
+}
+
+[data-theme="cyberpunk"] .invoice-search {
+  border-color: color-mix(in oklab, var(--color-base-100) 45%, transparent);
+  background-color: var(--color-primary-soft);
+  color: var(--color-base-100);
+}
+
+[data-theme="cyberpunk"] .invoice-search::placeholder {
+  color: color-mix(in oklab, var(--color-base-100) 70%, transparent);
+}
+
+[data-theme="cyberpunk"] .invoice-search:focus {
+  border-color: var(--color-base-100);
+}
+
+[data-theme="cyberpunk"] .invoice-table-shell {
+  background-color: var(--color-primary);
+  color: var(--color-base-100);
+}
+
+[data-theme="cyberpunk"] .invoice-table-head th {
+  color: var(--color-base-100);
+}
+
+[data-theme="cyberpunk"] .invoice-table-body,
+[data-theme="cyberpunk"] .invoice-mobile-card {
+  background-color: var(--color-primary-soft);
+  color: var(--color-base-100);
+}
+
+[data-theme="cyberpunk"] .invoice-table-row,
+[data-theme="cyberpunk"] .invoice-mobile-card > div {
+  border-color: color-mix(in oklab, var(--color-base-100) 25%, transparent);
+}
+
+[data-theme="cyberpunk"] .invoice-muted-text {
+  color: color-mix(in oklab, var(--color-base-100) 75%, transparent);
+}
+
+[data-theme="cyberpunk"] .invoice-create-button,
+[data-theme="cyberpunk"] .invoice-page-number:is(.z-10),
+[data-theme="cyberpunk"] .invoice-row-action,
+[data-theme="cyberpunk"] .invoice-page-arrow {
+  color: var(--color-base-100);
+}
+
+[data-theme="cyberpunk"] .invoice-page-number:is(.z-10) {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+[data-theme="cyberpunk"] .invoice-row-action,
+[data-theme="cyberpunk"] .invoice-page-number,
+[data-theme="cyberpunk"] .invoice-page-arrow {
+  background-color: var(--color-primary);
+  border-color: color-mix(in oklab, var(--color-base-100) 55%, transparent);
+  color: var(--color-base-100) !important;
+}
+
+[data-theme="cyberpunk"] .invoice-page-number.z-10 {
+  background-color: color-mix(in oklab, var(--color-primary) 85%, black);
+  border-color: color-mix(in oklab, var(--color-primary) 85%, black);
+}
+
+[data-theme="cyberpunk"] .invoice-page-number:hover,
+[data-theme="cyberpunk"] .invoice-page-arrow:not(.pointer-events-none):hover {
+  background-color: color-mix(in oklab, var(--color-primary) 85%, black);
+}
+
+[data-theme="cyberpunk"] .invoice-page-number:is(:hover, :active, :focus-visible, .z-10),
+[data-theme="cyberpunk"] .invoice-page-arrow:is(:hover, :active, :focus-visible) {
+  border-color: color-mix(in oklab, var(--color-base-100) 55%, transparent);
+}
+
+[data-theme="cyberpunk"] .invoice-page-arrow.pointer-events-none {
+  opacity: 0.55;
+}
+
+[data-theme="cyberpunk"] .invoice-pending-status {
+  background-color: var(--color-primary);
+  color: var(--color-base-100);
+}
+
+.sidebar-nav-control {
+  border-radius: 0.375rem;
+  background-color: var(--color-base-200);
+  color: var(--color-base-content);
+}
+
+.sidebar-nav-control:hover,
+.sidebar-nav-control:focus-visible {
+  background-color: color-mix(in oklab, var(--color-primary) 10%, transparent);
+  color: var(--color-primary);
+}
+
+.sidebar-nav-control:active {
+  background-color: var(--color-base-300);
+}
+
+.theme-selector-light:hover {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23000000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z'/%3E%3C/svg%3E") 12 12, pointer;
+}
+
+.theme-selector-dark:hover {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23f3e6a0' stroke='%23f3e6a0' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z'/%3E%3C/svg%3E") 12 12, pointer;
+}
+
+.theme-selector-dark:hover .theme-moon-icon > svg:first-child {
+  color: #f3e6a0;
+}
+
+.theme-selector-cyberpunk:hover {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='oklch%2894.51%25%200.179%20104.32%29' stroke='oklch%2894.51%25%200.179%20104.32%29' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z'/%3E%3C/svg%3E") 12 12, pointer;
+}
+
+.sidebar-nav-link-active {
+  background-color: color-mix(in oklab, var(--color-primary) 10%, transparent);
+  color: var(--color-primary);
+}
+
+.sidebar-nav-link {
+  border: 0;
+  box-shadow: none;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.sidebar-nav-link:hover,
+.sidebar-nav-link:focus-visible {
+  filter: none;
+  box-shadow: none;
+}
+
+.sidebar-nav-link:active {
+  filter: none;
+  box-shadow: none;
+}
+
+[data-theme="light"] .sidebar-nav-link,
+[data-theme="light"] .sidebar-nav-link:hover,
+[data-theme="light"] .sidebar-nav-link:active {
+  border: 0;
+  box-shadow: none;
+  filter: none;
+}
+
+[data-theme="dark"] .sidebar-nav-link,
+[data-theme="dark"] .sidebar-nav-link:hover,
+[data-theme="dark"] .sidebar-nav-link:active,
+[data-theme="dark"] .sidebar-nav-link:focus-visible {
+  border: 0;
+  box-shadow: none;
+  filter: none;
+}
+
+[data-theme="dark"]
+  .sidebar-nav-link:is(:hover, :active, :focus-visible, .sidebar-nav-link-active) {
+  background-color: var(--color-primary-hover);
+  color: var(--color-primary);
+}
+
+[data-theme="cyberpunk"] .sidebar-nav-control {
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  color: var(--color-base-100);
+}
+
+[data-theme="cyberpunk"] .sidebar-nav-control:hover,
+[data-theme="cyberpunk"] .sidebar-nav-control:focus-visible {
+  background-color: color-mix(in oklab, var(--color-primary) 85%, black);
+  border-color: color-mix(in oklab, var(--color-primary) 85%, black);
+  color: var(--color-base-100);
+}
+
+[data-theme="cyberpunk"] .sidebar-nav-control:active,
+[data-theme="cyberpunk"] .sidebar-nav-link-active,
+[data-theme="cyberpunk"] .sidebar-nav-link-active:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-base-100);
+}
+
+[data-theme="cyberpunk"] .sidebar-nav-link {
+  border: 1px solid var(--color-primary);
+  box-shadow: none;
+  filter: none;
+}
+
+[data-theme="cyberpunk"]
+  .sidebar-nav-link:is(:hover, :active, :focus-visible, .sidebar-nav-link-active) {
+  background-color: color-mix(in oklab, var(--color-primary) 85%, black);
+  border-color: color-mix(in oklab, var(--color-primary) 85%, black);
+  color: var(--color-base-100);
+}
+
+[data-theme] .theme-selector-compact,
+[data-theme] .theme-selector-compact:is(:hover, :active, :focus-visible) {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+@media (max-width: 767px) {
+  .dashboard-mobile-header {
+    background-color: var(--color-base-200);
+  }
+
+  [data-theme="cyberpunk"] .dashboard-mobile-header {
+    background-color: var(--color-primary);
+  }
+
+  .dashboard-mobile-header-logo {
+    border-color: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .dashboard-mobile-header-logo:hover,
+  .dashboard-mobile-header-logo:focus-visible {
+    background-color: transparent !important;
+  }
+
+  .dashboard-mobile-sign-out button {
+    border-color: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .dashboard-mobile-sign-out button:hover,
+  .dashboard-mobile-sign-out button:focus-visible,
+  .dashboard-mobile-sign-out button:active {
+    border-color: transparent !important;
+    background-color: transparent !important;
+  }
+}
+
+@theme {
+  --grid-template-columns-13: repeat(13, minmax(0, 1fr));
+  --color-blue-400: #2589fe;
+  --color-blue-500: #0070f3;
+  --color-blue-600: #2f6feb;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.theme-name-light {
+  font-family: var(--font-lusitana), serif;
+}
+
+.theme-current-label {
+  font-family: var(--font-inter), sans-serif;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.theme-moon-fill {
+  animation: theme-moon-fill 900ms ease-out both;
+  clip-path: inset(100% 0 0);
+}
+
+.theme-moon-fill path {
+  fill: #f3e6a0;
+  stroke: none;
+}
+
+.theme-moon-star {
+  position: absolute;
+  color: #f3e6a0;
+  font-size: 7px;
+  line-height: 1;
+  opacity: 0;
+  animation: theme-moon-star-twinkle 3200ms ease-in-out 900ms both;
+}
+
+.theme-moon-star-one {
+  top: -5px;
+  right: -2px;
+}
+
+.theme-moon-star-two {
+  top: 10px;
+  right: -7px;
+  animation-delay: 1050ms;
+}
+
+.theme-moon-star-three {
+  bottom: -5px;
+  left: -5px;
+  animation-delay: 1200ms;
+}
+
+.theme-bolt-fill {
+  animation: theme-bolt-fill 900ms ease-out both;
+  clip-path: inset(0 0 100%);
+}
+
+.theme-bolt-icon {
+  animation: theme-bolt-flash 600ms steps(1, end) 900ms both;
+}
+
+.theme-bolt-fill path {
+  fill: var(--color-base-100);
+  stroke: none;
+}
+
+@keyframes theme-moon-fill {
+  to {
+    clip-path: inset(0);
+  }
+}
+
+@keyframes theme-moon-star-twinkle {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  12% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  34% {
+    opacity: 0.35;
+    transform: scale(0.75);
+  }
+
+  56% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+
+  76% {
+    opacity: 0.5;
+    transform: scale(0.85);
+  }
+
+  88% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+}
+
+@keyframes theme-bolt-fill {
+  to {
+    clip-path: inset(0);
+  }
+}
+
+@keyframes theme-bolt-flash {
+  0%,
+  20%,
+  40%,
+  60%,
+  80%,
+  100% {
+    opacity: 1;
+  }
+
+  10%,
+  30%,
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-moon-fill,
+  .theme-bolt-fill,
+  .theme-bolt-icon {
+    animation: none;
+    clip-path: inset(0);
+  }
+
+  .theme-moon-star {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.theme-name-dark {
+  font-family: var(--font-lusitana), serif;
+  color: var(--color-blue-500);
+}
+
+.theme-name-cyberpunk {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
 
 input[type='number'] {
   -moz-appearance: textfield;
