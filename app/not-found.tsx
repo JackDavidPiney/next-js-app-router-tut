@@ -10,7 +10,7 @@ export default function NotFound() {
         <AcmeLogo className="home-brand-content" />
         <ThemeName compact />
       </header>
-      <section className="home-welcome-card my-4 flex grow flex-col items-center justify-center gap-4 rounded-lg px-6 py-10 text-center">
+      <section className="home-welcome-card home-not-found-content my-4 flex grow flex-col items-center justify-center gap-4 rounded-lg px-6 py-10 text-center">
         <FaceFrownIcon aria-hidden="true" className="h-12 w-12 opacity-70" />
         <p className="text-sm font-semibold uppercase tracking-wider">Error 404</p>
         <h1 className="text-3xl font-semibold md:text-4xl">Page not found</h1>

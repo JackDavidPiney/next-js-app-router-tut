@@ -344,7 +344,8 @@
 }
 
 [data-theme="cyberpunk"] .home-brand-content,
-[data-theme="cyberpunk"] .home-description {
+[data-theme="cyberpunk"] .home-description,
+[data-theme="cyberpunk"] .home-not-found-content {
   color: var(--color-base-100);
 }
 
